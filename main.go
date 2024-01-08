@@ -7,13 +7,49 @@ import (
 	"strings"
 )
 
+func game(p1, p2 player) player {
+	t := 1
+	for {
+		if t == 1 {
+			p1.turn()
+			if p1.score >= 100 {
+				return p1
+			}
+		} else {
+			p2.turn()
+			if p2.score >= 100 {
+				return p2
+			}
+		}
+		t *= -1
+	}
+}
+
+func simulateGames(p1Hold, p2Hold int) int {
+	p1 := player{id: 1, strategy: p1Hold}
+	p2 := player{id: 2, strategy: p2Hold}
+	var wins int
+	for i := 0; i < 10; i++ {
+		if winner := game(p1, p2); winner.id == 1 {
+			wins += 1
+		}
+		p1.reset()
+		p2.reset()
+	}
+	return wins
+}
+
 func fixStrategies(start1, end1, start2, end2 int) {
 	for i := start1; i <= end1; i++ {
 		for j := start2; j <= end2; j++ {
 			if i == j {
 				continue
 			}
-			fmt.Printf("%v, %v\n", i, j)
+			result := simulateGames(i, j)
+			fmt.Printf("Holding at  %v vs Holding at  %v: wins: %v/10 (%.1f%%), losses: %v/10 (%.1f%%)\n",
+				i, j,
+				result, float64(result)/10.0*100.0,
+				10-result, float64(10-result)/10.0*100.0)
 		}
 	}
 }
