@@ -26,8 +26,8 @@ func game(p1, p2 player) player {
 }
 
 func simulateGames(p1Hold, p2Hold int) int {
-	p1 := player{id: 1, strategy: p1Hold}
-	p2 := player{id: 2, strategy: p2Hold}
+	p1 := player{id: 1, hold: p1Hold}
+	p2 := player{id: 2, hold: p2Hold}
 	var wins int
 	for i := 0; i < 10; i++ {
 		if winner := game(p1, p2); winner.id == 1 {
