@@ -1,9 +1,14 @@
 package main
 
 import (
+	"flag"
 	"fmt"
 )
 
 func main() {
-	fmt.Println("Hello, World!")
+	flag.Parse()
+	args := flag.Args()
+	for i, v := range args {
+		fmt.Printf("arg %v - %v\n", i, v)
+	}
 }
