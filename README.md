@@ -40,22 +40,26 @@ This file contains the main logic of the game
     git clone git@github.com:viv-defy/game-of-pig.git
     cd game-of-pig
     ```
+- Build the project
+    ```
+    make build
+    ```
 - Run the code by entering two strategies
     ```
-    go run main.go 20 25
+    ./main 20 25
     ```
     Strategies can either be a range `start-end` or `hold` 
     For simulating the stories given in the go-bootcamp, run the following
 
     Story 1
     ```
-    go run main.go 10 15
+    ./main 10 15
     ```
     Story 2
     ```
-    go run main.go 21 1-100
+    ./main 21 1-100
     ```
     Story 3
     ```
-    go run main.go 1-100 1-100
+    ./main 1-100 1-100
     ```
