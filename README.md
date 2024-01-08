@@ -14,7 +14,7 @@ To understand the game in detail read [one2n go-bootcamp](https://playbook.one2n
 - **The input range for strategy is restricted from 1 to 100**. An input less than 1 as the beginning of the range raises an error. An input over 100 as the end of the range is replaced with 100
 
 ## Functions and Types
-The code contains a main file and a player file. 
+The project code is written in a main file and a player file. 
 ### main.go
 This file contains the main logic of the game
 #### functions
