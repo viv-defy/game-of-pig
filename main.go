@@ -99,11 +99,11 @@ func parseStrategies(strats []string) (int, int, int, int, error) {
 		if err != nil {
 			return 0, 0, 0, 0, err
 		}
-		if s > e {
+		if s > e || s < 1 {
 			return 0, 0, 0, 0, fmt.Errorf("invalid input strategy")
 		}
 		start = append(start, s)
-		end = append(end, e)
+		end = append(end, findMin(e, 100))
 	}
 
 	return start[0], end[0], start[1], end[1], nil
