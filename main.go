@@ -7,6 +7,17 @@ import (
 	"strings"
 )
 
+func fixStrategies(start1, end1, start2, end2 int) {
+	for i := start1; i <= end1; i++ {
+		for j := start2; j <= end2; j++ {
+			if i == j {
+				continue
+			}
+			fmt.Printf("%v, %v\n", i, j)
+		}
+	}
+}
+
 func parseRange(input string) (int, int, error) {
 	parts := strings.Split(input, "-")
 
@@ -56,5 +67,5 @@ func main() {
 		panic(err)
 	}
 
-	fmt.Printf("strat 1: %v-%v\nstrat 2: %v-%v\n", start1, end1, start2, end2)
+	fixStrategies(start1, end1, start2, end2)
 }
