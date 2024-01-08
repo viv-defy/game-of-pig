@@ -31,6 +31,11 @@ func main() {
 	flag.Parse()
 	strategies := flag.Args()
 
+	if len(strategies) != 2 {
+		fmt.Println("Usage: run-cmd {start-end | hold} {start-end | hold}")
+		return
+	}
+
 	for i, v := range strategies {
 		start, end, err := parseRange(v)
 		if err != nil {
