@@ -58,7 +58,7 @@ func fixStrategies(start1, end1, start2, end2 int) {
 			}
 			result := simulateGames(i, j)
 			if printPerHold {
-				fmt.Printf("Holding at  %v vs Holding at  %v: wins: %v/10 (%.1f%%), losses: %v/10 (%.1f%%)\n",
+				fmt.Printf("Holding at %v vs Holding at %v: wins: %v/10 (%.1f%%), losses: %v/10 (%.1f%%)\n",
 					i, j,
 					result, float64(result)/10.0*100.0,
 					10-result, float64(10-result)/10.0*100.0)
