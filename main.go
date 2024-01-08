@@ -40,16 +40,30 @@ func simulateGames(p1Hold, p2Hold int) int {
 }
 
 func fixStrategies(start1, end1, start2, end2 int) {
+	var gamesPlayed, wins float64
+	printPerHold := start1 == end1 || start2 == end2
+
 	for i := start1; i <= end1; i++ {
 		for j := start2; j <= end2; j++ {
 			if i == j {
 				continue
 			}
 			result := simulateGames(i, j)
-			fmt.Printf("Holding at  %v vs Holding at  %v: wins: %v/10 (%.1f%%), losses: %v/10 (%.1f%%)\n",
-				i, j,
-				result, float64(result)/10.0*100.0,
-				10-result, float64(10-result)/10.0*100.0)
+			if printPerHold {
+				fmt.Printf("Holding at  %v vs Holding at  %v: wins: %v/10 (%.1f%%), losses: %v/10 (%.1f%%)\n",
+					i, j,
+					result, float64(result)/10.0*100.0,
+					10-result, float64(10-result)/10.0*100.0)
+			}
+
+			wins += float64(result)
+			gamesPlayed += 10.0
+		}
+
+		if !printPerHold {
+			fmt.Printf("Result: Wins, losses staying at k = %v: %v/%v (%.1f%%), %v/%v (%.1f%%)\n", i,
+				wins, gamesPlayed, wins/gamesPlayed*100.0,
+				gamesPlayed-wins, gamesPlayed, (gamesPlayed-wins)/gamesPlayed*100.0)
 		}
 	}
 }
