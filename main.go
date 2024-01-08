@@ -39,6 +39,14 @@ func simulateGames(p1Hold, p2Hold int) int {
 	return wins
 }
 
+func findMin(a, b int) int {
+	if a < b {
+		return a
+	}
+
+	return b
+}
+
 func fixStrategies(start1, end1, start2, end2 int) {
 	var gamesPlayed, wins float64
 	printPerHold := start1 == end1 || start2 == end2

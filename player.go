@@ -25,11 +25,3 @@ func (p *player) turn() {
 func (p *player) reset() {
 	p.score = 0
 }
-
-func findMin(a, b int) int {
-	if a < b {
-		return a
-	}
-
-	return b
-}
