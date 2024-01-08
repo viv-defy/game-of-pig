@@ -73,6 +73,8 @@ func fixStrategies(start1, end1, start2, end2 int) {
 				wins, gamesPlayed, wins/gamesPlayed*100.0,
 				gamesPlayed-wins, gamesPlayed, (gamesPlayed-wins)/gamesPlayed*100.0)
 		}
+		gamesPlayed = 0.0
+		wins = 0.0
 	}
 }
 
